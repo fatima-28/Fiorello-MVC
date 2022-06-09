@@ -1,5 +1,5 @@
-﻿@using WebApp.ViewModels.Categories
-@model CategoryCreateViewModel
+﻿@using WebApp.Models
+@model Slide
 @{
     ViewData["Title"] = "Create";
 }
@@ -7,14 +7,14 @@
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">CREATE NEW CATEGORY</h4>
+                <h4 class="card-title">CREATE NEW SLIDER</h4>
 
-                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <form class="forms-sample" method="post">
                     <div class="form-group">
-                        <label asp-for="Name">CATEGORY NAME</label>
-                        <input class="form-control" asp-for="Name" placeholder="CATEGORY NAME">
+                        <label asp-for="Photo">SELECT PHOTO</label>
+                        <input class="form-control" asp-for="Photo" placeholder="CATEGORY NAME">
 
-                        <span class="text-danger" asp-validation-for="Name"></span>
+                        <span class="text-danger" asp-validation-for="Photo"></span>
                     </div>
 
                     <button type="submit" class="btn btn-primary me-2">CREATE</button>
