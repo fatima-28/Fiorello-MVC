@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Areas",
+    "\\Areas\\AdminPanel",
+    "\\Areas\\AdminPanel\\Controllers",
+    "\\Areas\\AdminPanel\\Views",
+    "\\Areas\\AdminPanel\\Views\\Dashboard"
+  ],
+  "SelectedNode": "\\Areas\\AdminPanel\\Controllers\\DashboardController.cs",
+  "PreviewInSolutionExplorer": false
+}
