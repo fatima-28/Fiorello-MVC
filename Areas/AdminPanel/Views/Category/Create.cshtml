@@ -1,4 +1,5 @@
-﻿
+﻿@using WebApp.ViewModels.Categories
+@model CategoryCreateViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -8,10 +9,12 @@
             <div class="card-body">
                 <h4 class="card-title">CREATE NEW CATEGORY</h4>
                
-                <form class="forms-sample">
+                <form class="forms-sample" method="post">
                     <div class="form-group">
-                        <label for="Name">CATEGORY NAME</label>
-                        <input type="text" class="form-control" id="Name" placeholder="CATEGORY NAME">
+                        <label asp-for="Name">CATEGORY NAME</label>
+                        <input  class="form-control" asp-for="Name"  placeholder="CATEGORY NAME">
+                   
+                    <span class="text-danger" asp-validation-for="Name"></span>
                     </div>
                     
                     <button type="submit" class="btn btn-primary me-2">CREATE</button>

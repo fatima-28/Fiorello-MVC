@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.DAL;
+using WebApp.ViewModels.Categories;
 
 namespace WebApp.Areas.AdminPanel.Controllers
 {
@@ -24,6 +25,15 @@ namespace WebApp.Areas.AdminPanel.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(CategoryCreateViewModel category)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            return Json(category);
         }
     }
 }
