@@ -1,13 +1,13 @@
-﻿@using WebApp.ViewModels.Categories
-@model CategoryCreateViewModel
+﻿@model Category
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
+
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">CREATE NEW CATEGORY</h4>
+                <h4 class="card-title">EDIT CATEGORY</h4>
 
                 <form class="forms-sample" method="post">
                     <div class="form-group">
@@ -17,7 +17,7 @@
                         <span class="text-danger" asp-validation-for="Name"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-primary me-2">CREATE</button>
+                    <button type="submit" class="btn btn-warning me-2">UPDATE</button>
                     <a class="btn btn-light" asp-action="Index">CANCEL</a>
                 </form>
             </div>
@@ -30,3 +30,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 }
+
+

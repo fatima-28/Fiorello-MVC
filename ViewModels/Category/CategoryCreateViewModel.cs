@@ -8,7 +8,7 @@ namespace WebApp.ViewModels.Categories
 {
     public class CategoryCreateViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="Category Name is Required !")]
         public string Name { get; set; }
     }
 }

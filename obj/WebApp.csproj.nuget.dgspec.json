@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mac\\Desktop\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\classtime\\Desktop\\MVC-project\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mac\\Desktop\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\classtime\\Desktop\\MVC-project\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mac\\Desktop\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\classtime\\Desktop\\MVC-project\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\Users\\mac\\Desktop\\WebApp\\WebApp.csproj",
-        "packagesPath": "C:\\Users\\mac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mac\\Desktop\\WebApp\\obj\\",
+        "projectPath": "C:\\Users\\classtime\\Desktop\\MVC-project\\WebApp.csproj",
+        "packagesPath": "C:\\Users\\classtime\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\classtime\\Desktop\\MVC-project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mac\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\classtime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
