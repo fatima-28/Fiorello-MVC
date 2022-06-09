@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Category>
 @{
     ViewData["Title"] = "Index";
+
+    int count = 1;
 }
 
 <div class="row">
@@ -32,7 +34,7 @@
                             {
                                 <tr>
                                     <td>
-                                        1
+                                        @count
                                     </td>
                                     <td>
                                         @category.Name
@@ -43,12 +45,13 @@
                                             <i class="mdi mdi-delete-forever"></i>
                                         </a>
 
-                                        <a class="btn btn-sm btn-success" asp-action="Update">
+                                        <a class="btn btn-sm btn-success" asp-action="Update" asp-route-id="@category.Id">
                                             <i class="mdi mdi-lead-pencil"></i>
                                         </a>
                                     </td>
 
                                 </tr>
+                                count++;
                             }
 
 
