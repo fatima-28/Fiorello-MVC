@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.DAL;
+using WebApp.Models;
 using WebApp.ViewModels.Categories;
 
 namespace WebApp.Areas.AdminPanel.Controllers
@@ -27,13 +28,21 @@ namespace WebApp.Areas.AdminPanel.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(CategoryCreateViewModel category)
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Create(CategoryCreateViewModel category)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            return Json(category);
+            
+            Category newCategory = new Category {
+                Name = category.Name
+            
+            };
+           await _context.Categories.AddAsync(newCategory);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
