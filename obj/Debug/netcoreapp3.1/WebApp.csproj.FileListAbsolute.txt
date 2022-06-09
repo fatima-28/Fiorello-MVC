@@ -455,3 +455,4 @@ C:\Users\classtime\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.dll
 C:\Users\classtime\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.pdb
 C:\Users\classtime\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.genruntimeconfig.cache
 C:\Users\classtime\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Update.cshtml.g.cs
+C:\Users\classtime\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Index.cshtml.g.cs
