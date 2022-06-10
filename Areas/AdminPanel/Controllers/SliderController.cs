@@ -89,7 +89,7 @@ namespace WebApp.Areas.AdminPanel.Controllers
         [ValidateAntiForgeryToken]
        
 
-        public  IActionResult Update(int? Id, Slide slide)
+        public  async  Task< IActionResult> Update(int? Id, Slide slide)
         {
             if (Id == null)
             {
@@ -97,18 +97,29 @@ namespace WebApp.Areas.AdminPanel.Controllers
 
             }
             
-            Slide Dbslider = _context.Slides.FirstOrDefault(sl=>sl.Id==Id);
+            Slide Dbslider = _context.Slides.Find(Id);
             if (Dbslider == null)
             {
                 return NotFound();
             }
-            if (Dbslider.Url==slide.Url)
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (slide.Photo.CheckFileSize(200))
             {
 
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("Photo", "Image size error ");
+                return View();
+
             }
-            else
+            if (!slide.Photo.CheckFileType("image/"))
             {
+                ModelState.AddModelError("Photo", "type error ");
+                return View();
+            }
+            var path = Helper.GetPath(_env.WebRootPath, "img", Dbslider.Url);
+
                 Slide newSlide = new Slide
                 {
 
@@ -116,12 +127,19 @@ namespace WebApp.Areas.AdminPanel.Controllers
 
                 };
                _context.Slides.Add(newSlide);
-               _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-        
-
             
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+
+            }
+            
+            Dbslider.Url = slide.Url;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+
+
         }
     }
 }
