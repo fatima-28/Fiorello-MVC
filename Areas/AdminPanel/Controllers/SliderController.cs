@@ -80,5 +80,48 @@ namespace WebApp.Areas.AdminPanel.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Update()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+       
+
+        public  IActionResult Update(int? Id, Slide slide)
+        {
+            if (Id == null)
+            {
+                return BadRequest();
+
+            }
+            
+            Slide Dbslider = _context.Slides.FirstOrDefault(sl=>sl.Id==Id);
+            if (Dbslider == null)
+            {
+                return NotFound();
+            }
+            if (Dbslider.Url==slide.Url)
+            {
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                Slide newSlide = new Slide
+                {
+
+                   Url = slide.Url
+
+                };
+               _context.Slides.Add(newSlide);
+               _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+        
+
+            
+        }
     }
 }
