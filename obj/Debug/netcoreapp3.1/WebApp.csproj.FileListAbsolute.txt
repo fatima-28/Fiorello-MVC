@@ -614,3 +614,10 @@ C:\Users\mac\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.dll
 C:\Users\mac\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.pdb
 C:\Users\mac\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.genruntimeconfig.cache
 C:\Users\mac\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Update.cshtml.g.cs
+C:\Users\mac\Desktop\MVC-project\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\mac\Desktop\MVC-project\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\mac\Desktop\MVC-project\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\mac\Desktop\MVC-project\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\mac\Desktop\MVC-project\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\mac\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Views\account\Register.cshtml.g.cs
+C:\Users\mac\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
