@@ -47,14 +47,14 @@ namespace WebApp.Controllers
                 }
                 return View(user);
             }
-            return View();
+           
           await  _signInManager.SignInAsync(newUser, true);
-            return RedirectToAction("Home","Index");
+            return RedirectToAction("Index","Home");
         }
         public async Task<IActionResult> Logout()
         {
            await  _signInManager.SignOutAsync();
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Index", "Home");
         }
         public  IActionResult Login()
         {

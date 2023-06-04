@@ -39,12 +39,13 @@ namespace WebApp.Areas.AdminPanel.Controllers
             {
                 return View();
             }
-            if (slide.Photo.CheckFileSize(200)) {
+            //if (slide.Photo.CheckFileSize(200))
+            //{
 
-                ModelState.AddModelError("Photo", "Image size error ");
-                return View();
-            
-            }
+            //    ModelState.AddModelError("Photo", "Image size error ");
+            //    return View();
+
+            //}
             if (!slide.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "type error ");
