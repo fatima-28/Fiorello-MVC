@@ -10,7 +10,7 @@ namespace WebApp.ViewModels
     {
         public List<Slide> Slides { get; set; }
         public Summary Summary { get; set; }
-        public List<Category> Categories { get; set; }
-        public List<Product> Products { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }

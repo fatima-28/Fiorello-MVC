@@ -10,7 +10,9 @@ namespace WebApp.Models
 {
     public class Slide
     {
+       
         public int Id { get; set; }
+        public bool IsDeleted { get; set; } = false;
         public string Url { get; set; }
         [NotMapped,Required]
         public IFormFile Photo { get; set; }

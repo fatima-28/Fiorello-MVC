@@ -790,3 +790,4 @@ C:\Users\FAT\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.dll
 C:\Users\FAT\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.pdb
 C:\Users\FAT\Desktop\MVC-project\obj\Debug\netcoreapp3.1\WebApp.genruntimeconfig.cache
 C:\Users\FAT\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductPartial.cshtml.g.cs
+C:\Users\FAT\Desktop\MVC-project\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs

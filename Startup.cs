@@ -12,6 +12,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp.DAL;
 using WebApp.Models;
+using WebApp.Services.Class;
+using WebApp.Services.Classes;
+using WebApp.Services.Interfaces;
 
 namespace WebApp
 {
@@ -30,7 +33,9 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddScoped<IProductService, ProductService>(); 
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddIdentity<AppUser, IdentityRole>()
        .AddEntityFrameworkStores<AppDbContext>()
        .AddDefaultTokenProviders();
