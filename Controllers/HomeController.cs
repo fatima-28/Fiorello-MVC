@@ -30,7 +30,6 @@ namespace WebApp.Controllers
             List<Slide> sliders = await _context.Slides.Where(s => !s.IsDeleted).ToListAsync();
             IEnumerable<Category> categories = await _categoryService.GetAll();
             Summary summary = await _context.Summary.FirstOrDefaultAsync();
-           
             IEnumerable<Product> products = await _productService.GetAll();
 
 
@@ -46,13 +45,7 @@ namespace WebApp.Controllers
 
             return View(model);
         }
-        //public async Task<IActionResult> LoadMore(int skip)
-        //{
-        //    IEnumerable<Product> products = await _context.Products.Include(m => m.Images).Where(m => !m.IsDeleted).Skip(skip).Take(4).ToListAsync();
-
-
-        //    return PartialView("_ProductPartial", products);
-        //}
+      
 
     }
 }

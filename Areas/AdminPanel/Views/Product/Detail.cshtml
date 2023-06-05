@@ -1,0 +1,45 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<section class="product-detail">
+    <div class="product-detail-inner">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center ">
+                    @foreach (var item in Model.Images)
+                    {
+                        <div style="width:200px; " class="m-1" data-id="@item.Id">
+                            <img class="img-fluid" src="~/img/@item.Url" />
+      
+                        </div>
+                    }
+                </div>
+               
+                <form asp-action="Detail" >
+                   
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input disabled class="form-control" asp-for="Title">
+                    </div>
+                    <div class="form-group">
+                        <label>Discount</label>
+                        <input disabled class="form-control" asp-for="Discount">
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input disabled class="form-control" asp-for="Price">
+                    </div>
+                    <div class="form-group">
+                        <label>Count</label>
+                        <input disabled class="form-control" asp-for="Count">
+                    </div>
+                   
+                  
+                    <a asp-action="Index" class="btn btn-info" style="text-decoration:none;"><i class="fa-solid fa-previous"></i>Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

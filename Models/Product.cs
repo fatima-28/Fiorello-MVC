@@ -11,7 +11,7 @@ namespace WebApp.Models
         public string Title{ get; set; }
         public double Price { get; set; }
 
-        public int Discount { get; set; }
+        public int Discount { get; set; } = 50;
         public int Count { get; set; }
         public bool IsDeleted { get; set; }
 

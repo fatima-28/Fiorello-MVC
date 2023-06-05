@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using WebApp.Services.Interfaces
+@inject ILayoutService layout
+@{
+    var datas = layout.GetDatas();
+  
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +31,7 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg d-flex d-lg-block justify-content-between d-xl-flex navbar-light py-3 py-lg-0">
                         <a class="navbar-brand" href="#">
-                            <img src="img/logo.png" alt="" id="logo">
+                            <img src="img/@datas.Settings["logo"]" alt="" id="logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -320,9 +326,9 @@
                     <div class="item">
                         <h6>COMPANY</h6>
                         <ul class="list-unstyled mt-4">
-                            <li><a class="text-black-50" href="">About Us</a></li>
-                            <li><a class="text-black-50" href="">Blog</a></li>
-                            <li><a class="text-black-50" href="">Order Tracking</a></li>
+                            <li><a class="text-black-50" href="">Phone:@datas.Settings["phone"]</a></li>
+                            <li><a class="text-black-50" href="">Email:@datas.Settings["email"]</a></li>
+                            <li><a class="text-black-50" href="">Desc:@datas.Settings["desc"]</a></li>
                             <li><a class="text-black-50" href="">FAQ Page</a></li>
                             <li><a class="text-black-50" href="">Contact Us</a></li>
                             <li><a class="text-black-50" href="">Login</a></li>
@@ -358,19 +364,14 @@
             <hr>
 
             <div class="row py-2">
-                <div class=" col-lg-4 text-center text-lg-left">
-                    <p class="text-black-50">
-                        Powered by <a class="author text-muted"
-                                      href="https://www.bakhtiyar.az">Bakhtiyar Shamilzada</a> 2020
-                    </p>
-                </div>
+              
                 <div class=" col-lg-4 text-center">
                     <img src="img/footer-bottom-1.png" class="fluid" alt="">
                 </div>
                 <div class=" col-lg-4 text-center text-lg-right mt-3 mt-lg-0">
                     <a class="text-black-50 mr-5"
-                       href="https://www.linkedin.com/in/bakhtiyar-shamilzada-145159185/">LINKEDIN</a>
-                    <a class="text-black-50" href="https://www.facebook.com/shamilzada.bakhtiyar">FACEBOOK</a>
+                       href="#">LINKEDIN</a>
+                    <a class="text-black-50" href="#">FACEBOOK</a>
                 </div>
             </div>
         </div>

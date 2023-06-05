@@ -70,7 +70,7 @@ namespace WebApp.Areas.AdminPanel.Controllers
             Category category = _context.Categories.Where(c=>!c.IsDeleted).FirstOrDefault(c=>c.Id==id);
             if (category==null)
             {
-                return NotFound();
+                return RedirectToAction("NotFound", "Error");
 
             }
             return View(category);
@@ -86,22 +86,14 @@ namespace WebApp.Areas.AdminPanel.Controllers
      
             Category categoryDb = _context.Categories.Where(c => !c.IsDeleted).FirstOrDefault(c => c.Id == id);
             if (categoryDb == null)
-            return NotFound();
+                return RedirectToAction("NotFound", "Error");
 
-            
+
             if (category.Name.ToLower()==categoryDb.Name.ToLower())
                 return RedirectToAction(nameof(Index));
             bool IsExist = categories.Any(c => c.Name.ToLower() == category.Name.ToLower());
 
-            //foreach (var ct in categories)
-            //{
-            //    if (category.Name.ToLower() ==ct.Name.ToLower())
-            //    {
-            //        IsExist = true;
-            //        break;
-            //    }
-
-            //}
+            
 
             if (IsExist)
             {
@@ -122,7 +114,7 @@ namespace WebApp.Areas.AdminPanel.Controllers
             }
             Category categoryDb = _context.Categories.Where(c => !c.IsDeleted).FirstOrDefault(c => c.Id == id);
             if (categoryDb == null)
-                return NotFound();
+                return RedirectToAction("NotFound", "Error");
 
             categoryDb.IsDeleted = true;
             await _context.SaveChangesAsync();

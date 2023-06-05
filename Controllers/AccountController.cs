@@ -64,13 +64,14 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(SignInVM user)
         {
-          AppUser userDb= await _userManager.FindByIdAsync(user.email);
+          AppUser userDb= await _userManager.FindByEmailAsync(user.email);
             if (userDb==null)
             {
-                ModelState.AddModelError("","Uour email or password is invalid");
+                ModelState.AddModelError("","Your email or password is invalid");
                 return View(user);
             }
-            return RedirectToAction("Home", "Index");
+            await _signInManager.SignInAsync(userDb, true);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

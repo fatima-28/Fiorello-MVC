@@ -35,6 +35,7 @@ namespace WebApp
             services.AddControllersWithViews();
             services.AddScoped<IProductService, ProductService>(); 
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ILayoutService, LayoutService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
            services.AddSession(option =>
             {
