@@ -14,10 +14,8 @@
             </div>
             <div class="price">
                 <input type="hidden" id="selected-product" value="@product.Id">
-                <form id="add-basket-form">
-                    <button type="submit" class="btn btn-primary">Add to card</button>
-                </form>
                
+                <a data-id="@product.Id" class="text-black-50 add-card"  style="background:transparent;border:0;outline:none;cursor:pointer">Add to cart</a>
                 <span class="text-black-50">$@product.Price</span>
             </div>
         </div>

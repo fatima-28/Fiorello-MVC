@@ -14,7 +14,8 @@
             url: `shop/loadmore?skip=${skip}`,
             type: "Get",
             success: function (res) {
-
+              
+              
                 $(parent).append(res);
                 console.log(res);
 
@@ -22,7 +23,7 @@
 
                 if (skip >= datas) {
                     $(".load-more").addClass("d-none");
-                    $(".show-less").removeClass("d-none");
+                    
                 }
             }
 
@@ -50,7 +51,7 @@
 
                 if (skip >= datas) {
                     $(".load-more").addClass("d-none");
-                    $(".show-less").removeClass("d-none");
+                   
                 }
             }
 

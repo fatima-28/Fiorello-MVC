@@ -18,7 +18,7 @@ namespace WebApp.Services.Class
         }
         public async Task<IEnumerable<Product>> GetAll()
         {
-            var res= await _context.Products.Include(m => m.Images).ToListAsync();
+            var res= await _context.Products.Include(m => m.Images).Where(m=>!m.IsDeleted).ToListAsync();
             return res;
         }
 

@@ -1,49 +1,48 @@
-﻿
-      $(document).on("click", ".delete-item", function (e) {
+﻿function DoWithoutRefresh(btn,url) {
+    $(document).on("click", btn, function (e) {
         e.preventDefault()
         let parent = $(this).parent().parent();
         let id = $(this).attr("data-id");
-          let data = { id: id };
-          console.log(id);
-          console.log(parent);
+        let data = { id: id };
+
         $.ajax({
-            url: "Product/Delete",
+            url: url,
             type: "Post",
             data: data,
             success: function () {
                 parent.addClass("d-none");
-                console.log("salam")
+
             }
         })
-      })
-$(document).on("click", ".archive-item", function (e) {
-    e.preventDefault()
-    let parent = $(this).parent().parent();
-    let id = $(this).attr("data-id");
-    let data = { id: id };
-    $.ajax({
-        url: "Product/Archive",
-        type: "Post",
-        data: data,
-        success: function () {
-            parent.addClass("d-none");
-           
-        }
     })
-})
-$(document).on("click", ".restore-item", function (e) {
+}
+
+DoWithoutRefresh(".delete-from-card", "Basket/Delete");
+DoWithoutRefresh(".delete-item", "Product/Delete");
+DoWithoutRefresh(".archive-item", "Product/Archive");
+DoWithoutRefresh(".restore-item", "Archive/GetArchivedProduct");
+   
+
+
+$(document).on("click", ".add-card", function (e) {
     e.preventDefault()
-    let parent = $(this).parent().parent();
     let id = $(this).attr("data-id");
     let data = { id: id };
+    console.log(id)
     $.ajax({
-        url: "Archive/GetArchivedProduct",
+        url: "Shop/AddBasket",
         type: "Post",
         data: data,
         success: function () {
-            parent.addClass("d-none");
+           console.log("ok")
 
         }
     })
 })
 
+$('.reload-page').click(function () {
+    location.reload();
+});
+$(".delete-from-card").click(function () {
+    $('.reload-page').removeClass("d-none")
+});

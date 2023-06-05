@@ -36,6 +36,11 @@ namespace WebApp
             services.AddScoped<IProductService, ProductService>(); 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+           services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(15);
+            });
+
             services.AddIdentity<AppUser, IdentityRole>()
        .AddEntityFrameworkStores<AppDbContext>()
        .AddDefaultTokenProviders();
@@ -72,6 +77,7 @@ namespace WebApp
             }
 
             app.UseRouting();
+            app.UseSession();
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseAuthorization();

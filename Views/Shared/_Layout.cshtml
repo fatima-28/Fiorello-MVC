@@ -155,14 +155,12 @@
 
                                     </ul>
                                 </li>
+                              <a asp-controller="Basket" asp-action="Index" class="my-2" style="color:black">
                                 <li class="nav-item my-auto shop-cart">
                                     <i class="fas fa-shopping-bag"></i>
-                                    <sup class="rounded-circle">0</sup>
-                                    <span>CART ($0)</span>
-                                    <ul class="list-unstyled py-3">
-                                        <li class="">No products in the cart.</li>
-                                    </ul>
+
                                 </li>
+                              </a>
                             </ul>
                         </div>
 
@@ -392,6 +390,7 @@
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e5e249fce2.js" crossorigin="anonymous"></script>
     <script src="~/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/js/antirefresh.js"></script>
     <script src="~/js/script.js"></script>
     @RenderSection("scripts", required: false)
    </body>

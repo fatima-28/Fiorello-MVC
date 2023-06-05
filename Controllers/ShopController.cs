@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using WebApp.DAL;
 using WebApp.Models;
+using WebApp.Services.Class;
 using WebApp.Services.Interfaces;
+using WebApp.ViewModels.Basket;
 
 namespace WebApp.Controllers
 {
@@ -13,10 +17,12 @@ namespace WebApp.Controllers
     {
             private readonly AppDbContext _context;
             private readonly IProductService _prodServices;
+        private readonly IHttpContextAccessor _accessor;
 
-            public ShopController(AppDbContext context, IProductService prodServices)
+        public ShopController(AppDbContext context, IProductService prodServices, IHttpContextAccessor accessor)
             {
                 _context = context;
+            _accessor = accessor;
             _prodServices = prodServices;
             }
 
@@ -38,6 +44,58 @@ namespace WebApp.Controllers
 
             return PartialView("_ProductPartial", products);
             }
-        
+        [HttpPost]
+       
+        public async Task<IActionResult> AddBasket(int? id)
+        {
+            if (id is null) return BadRequest();
+
+            Product product = await _prodServices.GetById(id);
+
+            if (product is null) return NotFound();
+
+            List<BasketVM> basket = GetBasketDatas();
+
+            AddProduct(basket, product);
+
+            return Ok();
+        }
+
+        private List<BasketVM> GetBasketDatas()
+        {
+            List<BasketVM> basket;
+
+            if (_accessor.HttpContext.Session.GetString("basket") == null)
+            {
+                basket = new List<BasketVM>();
+            }
+            else
+            {
+                basket = JsonSerializer.Deserialize<List<BasketVM>>(_accessor.HttpContext.Session.GetString("basket"));
+               
+            }
+
+            return basket;
+        }
+
+        private void AddProduct(List<BasketVM> basket, Product product)
+        {
+            BasketVM exProd = basket.FirstOrDefault(m => m.Id == product.Id);
+
+            if (exProd is null)
+            {
+                basket.Add(new BasketVM
+                {
+                    Id = product.Id,
+                    Count = 1
+                });
+            }
+            else
+            {
+                exProd.Count++;
+            }
+
+            _accessor.HttpContext.Session.SetString("basket", JsonSerializer.Serialize(basket));
+        }
     }
 }
