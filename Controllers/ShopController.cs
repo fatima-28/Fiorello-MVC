@@ -33,10 +33,10 @@ namespace WebApp.Controllers
 
             public async Task<IActionResult> LoadMore(int skip)
             {
-            IEnumerable<Product> products = await _context.Products.Include(m => m.Images).Where(m => !m.IsDeleted).Take(4).Skip(skip).ToListAsync();
+            IEnumerable<Product> products = await _context.Products.Include(m => m.Images).Where(m => !m.IsDeleted).Skip(skip).Take(4).ToListAsync();
 
 
-            return PartialView("_ProductsPartial", products);
+            return PartialView("_ProductPartial", products);
             }
         
     }
