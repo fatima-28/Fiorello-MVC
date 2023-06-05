@@ -22,13 +22,9 @@ namespace WebApp.Services.Class
             return res;
         }
 
-        public  async Task<Product> GetAllById(int id)
-        {
-           var res = await _context.Products.Include(m => m.Images).Include(m => m.Category).FirstOrDefaultAsync(m => m.Id == id);
-            return res;
-        }
+      
 
-        public async Task<Product> GetById(int id)
+        public async Task<Product> GetById(int? id)
         {
            var res= await _context.Products.FindAsync(id);
             return res;

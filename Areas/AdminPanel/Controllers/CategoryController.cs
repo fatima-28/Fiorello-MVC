@@ -43,16 +43,7 @@ namespace WebApp.Areas.AdminPanel.Controllers
             }
             bool IsExist = categories.Where(c=>!c.IsDeleted).Any(c=>c.Name.ToLower()==category.Name.ToLower());
             
-            //foreach (var ct in categories)
-            //{
-            //    if (category.Name.ToLower() ==ct.Name.ToLower())
-            //    {
-            //        IsExist = true;
-            //        break;
-            //    }
-
-            //}
-
+            
             if (IsExist)
             {
                 ModelState.AddModelError("Name", $"{category.Name} is exist");
