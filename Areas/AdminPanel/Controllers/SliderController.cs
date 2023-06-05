@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using WebApp.Models;
 namespace WebApp.Areas.AdminPanel.Controllers
 {
   [Area("AdminPanel")]
+    [Authorize(Roles = nameof(Roles.Role.Admin))]
     public class SliderController : Controller
     {
         private AppDbContext _context { get; }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApp.Helpers;
 using WebApp.Models;
 using WebApp.ViewModels.Accounts;
 
@@ -13,10 +14,12 @@ namespace WebApp.Controllers
     {
         public UserManager<AppUser> _userManager { get;  }
         public SignInManager<AppUser> _signInManager { get; }
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public RoleManager<IdentityRole> _roleManager { get; }
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
 
         }
         public IActionResult Register()
@@ -47,7 +50,7 @@ namespace WebApp.Controllers
                 }
                 return View(user);
             }
-           
+            await _userManager.AddToRoleAsync(newUser, Roles.Role.User.ToString());
           await  _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index","Home");
         }
@@ -73,5 +76,20 @@ namespace WebApp.Controllers
             await _signInManager.SignInAsync(userDb, true);
             return RedirectToAction("Index", "Home");
         }
+        //public async Task CreateRole()
+        //{
+        //    foreach (var item in Enum.GetValues(typeof(Roles.Role)))
+        //    {
+        //        if (!await _roleManager.RoleExistsAsync(item.ToString()))
+        //        {
+        //            IdentityRole role = new IdentityRole();
+        //            role.Name = item.ToString();
+        //            await _roleManager.CreateAsync(role);
+        //        }
+               
+        //    }
+           
+
+        //}
     }
 }
